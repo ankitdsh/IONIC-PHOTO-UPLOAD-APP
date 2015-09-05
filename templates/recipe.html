@@ -1,0 +1,51 @@
+<ion-view title="{{title}}">
+
+    <ion-content>
+        <div class="item item-avatar">
+            <img ng-src="{{LOGGED_USER.pic}}">
+            <h3>  Welcome {{ LOGGED_USER.name}}</h3>
+        </div>
+
+        <ion-list>
+            <ion-item ng-repeat="item in recipes | orderBy:ordering" type="item-text-wrap" href="#/tab/recipedetial">
+
+
+                <!-- HEADER -->
+                <div class="item item-avatar">
+                    <img ng-src="{{item.images[0]}}">
+                    <h3>{{item.title}}</h3>
+                    <p>Posted By {{this.getUserName(item)}}.</p>
+                </div>
+
+                <!-- BODY -->
+                <div class="item item-body">
+
+                    <img class="full-image" ng-src="{{item.images[0]}}" ng-click="checkRecipe({{item}})">
+                    <p style=" text-overflow: ellipsis;white-space: nowrap;overflow: hidden;">{{item.description}}</p>
+                    <p>
+                        <a href="#" class="subdued">{{item.externalLink}}</a>
+                    </p>
+                </div>
+
+
+                <!-- FOOTER -->
+                <div class="item tabs tabs-secondary tabs-icon-left">
+                    <a class="tab-item" href="#">
+                        <i class="icon ion-thumbsup"></i> {{item.votes}} Likes
+                    </a>
+                    <a class="tab-item" href="#">
+                        <i class="icon ion-chatbox"></i>{{item.comments.length}} Comments
+                    </a>
+                    <a class="tab-item" href="#">
+                        <i class="icon ion-share"></i> Share
+                    </a>
+                </div>
+
+
+            </ion-item>
+
+        </ion-list>
+
+
+    </ion-content>
+</ion-view>

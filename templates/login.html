@@ -1,0 +1,28 @@
+<ion-view title="Login">
+    <ion-content padding="true">
+
+        <div class="list">
+            <!-- USER NAME -->
+            <img ng-src="{{user.pic}}">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Name</span>
+                <input type="text" placeholder="Name" ng-model="user.name">
+            </label>
+
+            <!-- USER PICTURE -->
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Paste Your Image URL</span>
+                <input type="text" placeholder="Paste Image URL" ng-model="user.pic">
+            </label>
+
+            <button class="button icon-left button-positive">Add a Photo</button>
+
+            <!-- SUBMIT -->
+            <button class="button button-block button-positive" ng-click="login()">
+                Login
+            </button>
+
+        </div>
+
+    </ion-content>
+</ion-view>

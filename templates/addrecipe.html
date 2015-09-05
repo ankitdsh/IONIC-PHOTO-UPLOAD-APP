@@ -1,0 +1,49 @@
+<ion-view title="Add">
+    <ion-content padding="true">
+        <div class="item item-avatar">
+            <img ng-src="{{LOGGED_USER.pic}}">
+            <h3>  Welcome {{ LOGGED_USER.name}}</h3>
+        </div>
+        <div class="list">
+            <!-- USER -->
+      <!-- <label class="item item-input item-stacked-label">
+    <span class="input-label">First Name</span>
+    <input type="text" placeholder="First Name" ng-model="user.name">
+</label>
+<label class="item item-input item-stacked-label">
+    <span class="input-label">Paste Image URL</span>
+    <input type="text" placeholder="Paste Image URL" ng-model="user.pic">
+</label>
+ -->
+
+            <!-- RECIPE -->
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Recipe Name</span>
+                <input type="text" placeholder="Recipe Name" ng-model="recipe.title">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Description</span>
+                <textarea placeholder="Add some description..." ng-model="recipe.description"></textarea>
+            </label>
+
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Paste External Link</span>
+                <input type="text" placeholder="Paste Image URL" ng-model="recipe.externalLink">
+            </label>
+            <img ng-src="{{recipe.imageURL}}">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Paste Image URL</span>
+                <input type="text" placeholder="Paste Image URL" ng-model="recipe.imageURL">
+            </label>
+
+            <button class="button icon-left button-positive">Add a Photo</button>
+
+            <!-- SUBMIT -->
+            <button class="button button-block button-positive" ng-click="addNewRecipe()">
+                Submit Recipe
+            </button>
+
+        </div>
+
+    </ion-content>
+</ion-view>

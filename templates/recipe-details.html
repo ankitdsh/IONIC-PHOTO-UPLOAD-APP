@@ -1,0 +1,79 @@
+<ion-nav-view name="login"></ion-nav-view>
+<ion-view title="Recipe Details">
+    <ion-content>
+        <div class="item item-avatar">
+            <img ng-src="{{LOGGED_USER.pic}}">
+            <h3>  Welcome {{ LOGGED_USER.name}}</h3>
+        </div>
+        <ion-list>
+
+
+            <!-- RECIPE HEADER -->
+            <div class="item item-avatar">
+                <img ng-src="{{recipe.images[0]}}">
+                <h3>{{item.title}}</h3>
+                <p>added By {{this.getUserName(item)}}.</p>
+            </div>
+
+            <!-- RECIPE BODY -->
+            <div class="item item-body">
+
+                <img class="full-image" ng-src="{{recipe.images[0]}}">
+                <p>{{recipe.description}}</p>
+                <p>
+                    <a href="#" class="subdued">{{recipe.externalLink}}</a>
+                </p>
+            </div>
+
+            <!-- VOTING SECTION -->
+            <div class="list">
+                <div class="row">
+                    <div class="col ">
+
+                        Total Votes:{{votes}}
+
+                    </div>
+
+                    <div class="col">
+                        <a class="tab-item" href="" ng-click="votes=recipe.votes;changeVote(0)">
+                            <i class="icon ion-refresh"></i>No Vote
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a class="tab-item" href="" ng-click="votes=recipe.votes + 1;changeVote(1)">
+                            <i class="icon ion-thumbsup"></i>Like
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a class="tab-item" href="" ng-click="votes=recipe.votes - 1;changeVote(-1)">
+                            <i class="icon ion-thumbsdown"></i> Dislike
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMMENTS SECTION -->
+            <div class="item item-divider">
+                Comments: {{recipe.comments.length}}
+            </div>
+
+            <!-- COMMENT REPEATER -->
+            <div class="item item-avatar" ng-repeat="comment in user_comments">
+                <img ng-src="{{comment.pic}}">
+                <h2>{{comment.name}}</h2>
+                <p>{{comment.said}}</p>
+            </div>
+            <!-- USER COMMENT -->
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Add a Comment</span>
+                <input type="text" placeholder="Add a Comment here..." ng-model="recipe.newcomment">
+            </label>
+
+
+            <!-- SUBMIT USER COMMENT -->
+            <button class="button button-block button-positive" ng-click="addComment()">
+                Add Comment
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-view>
